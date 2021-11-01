@@ -10,7 +10,7 @@ import com.example.desafioandroid2.R
 import com.example.desafioandroid2.main.model.Resources
 
 class MainAdapter(
-    private val items: List<Resources>,
+    val items: MutableList<Resources>,
     private val context: Context,
 ) :
     RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
@@ -39,7 +39,7 @@ class MainAdapter(
 
             value.text = item.value
             resource_id.text = item.resource_id
-            updated_at.text = item.updated_at
+            updated_at.text = item.updated_at.toString()
 
         }
     }
