@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_filters"
+        app:layout_constraintTop_toTopOf="parent"
         >
 
         <EditText
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_search"
-            android:hint="Digite o nome do treino"
+            android:hint="O que deseja buscar"
             android:iconifiedByDefault="false">
 
             <requestFocus />
@@ -34,8 +34,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_search"
+        app:layout_constraintStart_toStartOf="@id/rl_search"
+        app:layout_constraintEnd_toEndOf="@id/rl_search"
         tools:listitem="@layout/item_filter"
+        android:layout_marginTop="16dp"
 
         />
 
@@ -44,11 +47,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_details_main"
-        app:layout_constraintTop_toBottomOf="@id/rl_search"/>
+        app:layout_constraintTop_toBottomOf="@id/rv_filters"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

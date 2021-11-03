@@ -5,37 +5,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp">
 
-
     <TextView
         android:id="@+id/tv_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="teste"
+        android:gravity="center"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_resourceid"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
         android:id="@+id/tv_resourceid"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="teste"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/tv_value"
         app:layout_constraintStart_toStartOf="@id/tv_value"
+        app:layout_constraintEnd_toEndOf="@id/tv_value"
         />
 
     <TextView
         android:id="@+id/tv_updateat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="teste"
-        android:gravity="right"
-        app:layout_constraintTop_toBottomOf="@id/tv_value"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_resourceid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

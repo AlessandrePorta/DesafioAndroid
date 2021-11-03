@@ -1,6 +1,8 @@
 package com.example.desafioandroid2.main
 
 import androidx.lifecycle.*
+import androidx.paging.PagedList
+import com.example.desafioandroid2.main.model.ListaItems
 import com.example.desafioandroid2.network.Repository
 import kotlinx.coroutines.flow.collect
 

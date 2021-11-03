@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroid2.R
-import com.example.desafioandroid2.main.model.Resources
+import com.example.desafioandroid2.main.model.Item
 
 class MainAdapter(
-    val items: MutableList<Resources>,
+    val items: MutableList<Item>,
     private val context: Context,
 ) :
     RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
@@ -35,11 +35,11 @@ class MainAdapter(
         val resource_id = itemView.findViewById<TextView>(R.id.tv_resourceid)
         val updated_at = itemView.findViewById<TextView>(R.id.tv_updateat)
 
-        fun bind(item: Resources) {
+        fun bind(item: Item) {
 
-            value.text = item.value
-            resource_id.text = item.resource_id
-            updated_at.text = item.updated_at.toString()
+            value.text = item.resource.value
+            resource_id.text = item.resource.resource_id
+            updated_at.text = item.resource.updated_at
 
         }
     }

@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroid2.R
-import com.example.desafioandroid2.main.model.MainResponse
+import com.example.desafioandroid2.main.model.ListaItems
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,24 +24,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
+
         mainViewModel.repos.observe(this) { setupList(it) }
+        mainViewModel.repos.observe(this) { searchValue(it)}
         mainViewModel.fetchRepos()
 
     }
 
-    private fun setupList(response: MainResponse) {
-        val search = findViewById<EditText>(R.id.et_search)
+    private fun setupList(response: ListaItems) {
         val rv_item_list = findViewById<RecyclerView>(R.id.rv_item_list)
-        val date = findViewById<TextView>(R.id.tv_updateat)
 
-        date.text.run{
-            "Criado: ${getDate("yyyy/MM/dd'T'HH/mm/ssZ")}"
-        }
 
-        rv_item_list.adapter = MainAdapter(response.resources, this)
+        rv_item_list.adapter = MainAdapter(response, this)
         rv_item_list.addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
+    }
+
+    fun searchValue(response: ListaItems){
+        val rv_item_list = findViewById<RecyclerView>(R.id.rv_item_list)
+        val search = findViewById<EditText>(R.id.et_search)
+
+        mainAdapter =
+            MainAdapter(
+                response,
+                this
+            )
+        rv_item_list.apply {
+            setHasFixedSize(true)
+            adapter = mainAdapter
+        }
 
         search.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
@@ -52,19 +61,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 var listaAux = mainAdapter.items.filter {
-                    it.value!!.toLowerCase().contains(s.toString().toLowerCase())
-                    it.resource_id!!.toLowerCase().contains(s.toString().toLowerCase())
+                    it.resource.value!!.lowercase().contains(s.toString().lowercase())
                 }
                 rv_item_list.adapter = MainAdapter(listaAux.toMutableList(), this@MainActivity)
                 rv_item_list.adapter?.notifyDataSetChanged()
             }
         })
-    }
-
-    fun getDate(dateFormat : String) : String{
-        val formatter = SimpleDateFormat(dateFormat)
-        val calendar: Calendar = Calendar.getInstance()
-
-        return formatter.format(calendar.getTime())
     }
 }
