@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="fullscreen_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Desafio Android 2</string>
+
+    <array name="teste">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+    </array>
 </resources>
