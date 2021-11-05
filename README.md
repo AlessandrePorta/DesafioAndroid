@@ -8,10 +8,6 @@ O senhor Milo ficaria muito feliz se ele pudesse digitar num campo de busca um t
  
 O belo design da aplicação e a usabilidade ficam a seu critério. Sabemos que o senhor Milo gosta de verde e se preocupa com o meio ambiente.
  
-Você pode escolher entre Android tradicional, Swift, React-Native ou em Cordova usando React. Aplicações testadas são vistas com bons olhos pelo senhor Milo.
- 
-Você vai perceber que esse endpoint não é otimizado para leitura geral e provavelmente vai querer fazer um cache dos dados no estado local da aplicação. Recomendamos utilizar o Redux para isso, de maneira opcional.
- 
 Scroll contínuo na lista é um bônus mas, se não conseguir uma boa performance, pode usar paginação.
  
 Procure pensar no comportamento offline e em dar feedback ao senhor Milo enquanto o software estiver processando alguma ação ou atualizando seus dados.
