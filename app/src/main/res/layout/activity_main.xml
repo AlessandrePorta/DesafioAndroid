@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".application.Application">
@@ -11,57 +11,110 @@
         android:id="@+id/pb_loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-    <RelativeLayout
-        android:id="@+id/rl_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/et_search"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_activity2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".application.Application">
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_search"
-            android:hint="O que deseja buscar"
-            android:iconifiedByDefault="false">
+            android:layout_margin="8dp"
+            android:background="@drawable/border_line"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <requestFocus />
-        </EditText>
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_search"
+                android:hint="O que deseja buscar"
+                android:iconifiedByDefault="false">
 
-    </RelativeLayout>
+                <requestFocus />
+            </EditText>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_filters"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_filter"
-        app:layout_constraintStart_toStartOf="@id/rl_search"
-        app:layout_constraintEnd_toEndOf="@id/rl_search"
-        app:layout_constraintTop_toBottomOf="@id/rl_search"
-        />
+        </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_item_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="@id/rv_filters"
-        app:layout_constraintEnd_toEndOf="@id/rv_filters"
-        app:layout_constraintTop_toBottomOf="@id/rv_filters"
-        />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_filters_language"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@id/til_filters_module"
+            app:layout_constraintStart_toStartOf="@id/rl_search"
+            app:layout_constraintTop_toBottomOf="@id/rl_search">
 
+            <AutoCompleteTextView
+                android:id="@+id/actv_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:inputType="none"
+                android:text="@string/languages" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_filters_module"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@id/rl_search"
+            app:layout_constraintStart_toEndOf="@id/til_filters_language"
+            app:layout_constraintTop_toBottomOf="@id/rl_search">
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_module"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="8dp"
+                android:inputType="none"
+                android:text="@string/modules" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_clean_filters"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/border_line"
+            android:backgroundTint="@color/green"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Clean Filters"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/rl_search"
+            app:layout_constraintStart_toStartOf="@id/rl_search"
+            app:layout_constraintTop_toBottomOf="@id/til_filters_language" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/border_line"
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/tv_clean_filters"
+            app:layout_constraintStart_toStartOf="@id/tv_clean_filters"
+            app:layout_constraintTop_toBottomOf="@id/tv_clean_filters" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

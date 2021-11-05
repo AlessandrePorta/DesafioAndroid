@@ -1,27 +1,11 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_language_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.desafioandroid2.main.MainActivity"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
+    android:textColor="@color/black"
+    android:text="TextView"
+    android:textStyle="bold"
+    android:textSize="16sp"
     android:orientation="vertical">
-
-    <Spinner
-        android:id="@+id/sp_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/tv_picked"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/sp_list"
-        app:layout_constraintEnd_toEndOf="@id/sp_list"
-        app:layout_constraintTop_toBottomOf="@id/sp_list"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</TextView>
