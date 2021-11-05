@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroid2.R
 import com.example.desafioandroid2.main.model.Item
 import com.example.desafioandroid2.main.model.ListaItems
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -145,10 +147,18 @@ class MainActivity : AppCompatActivity() {
     private fun cleanFilters(response: ListaItems) {
         val rv_item_list = findViewById<RecyclerView>(R.id.rv_item_list)
         val cleanFilter = findViewById<TextView>(R.id.tv_clean_filters)
+        val til_filter_language = findViewById<TextInputLayout>(R.id.til_filters_language)
+        val til_filter_module = findViewById<TextInputLayout>(R.id.til_filters_module)
 
         cleanFilter.setOnClickListener {
             rv_item_list.adapter = MainAdapter(response, this@MainActivity)
             rv_item_list.adapter?.notifyDataSetChanged()
+
+            til_filter_language.editText?.setText(R.string.languages)
+            til_filter_module.editText?.setText(R.string.modules)
+
+            filterLanguageList(response)
+            filterModuleList(response)
         }
     }
 

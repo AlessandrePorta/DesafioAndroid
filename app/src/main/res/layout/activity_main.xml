@@ -51,10 +51,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@id/til_filters_module"
             app:layout_constraintStart_toStartOf="@id/rl_search"
-            app:layout_constraintTop_toBottomOf="@id/rl_search">
+            app:layout_constraintTop_toTopOf="@id/til_filters_module"
+            app:layout_constraintBottom_toBottomOf="@id/til_filters_module">
 
             <AutoCompleteTextView
                 android:id="@+id/actv_language"
@@ -101,7 +101,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@id/rl_search"
             app:layout_constraintStart_toStartOf="@id/rl_search"
-            app:layout_constraintTop_toBottomOf="@id/til_filters_language" />
+            app:layout_constraintTop_toBottomOf="@id/til_filters_module" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_item_list"
